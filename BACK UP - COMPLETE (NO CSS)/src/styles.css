@@ -1,0 +1,53 @@
+/* form {
+    width: 100%;
+} */
+
+.fRep {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.restandwarningform, .timer, .reps {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid black; */
+    padding: 5px;
+    margin: 5px;
+}
+
+.buttonrow {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bigbutton {
+    width: 150px;
+    height: 40px;
+}
+
+h1, h4 {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+/* .timer {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* @media (max-width: 1136px) {
+    .restandwarningform {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+} */

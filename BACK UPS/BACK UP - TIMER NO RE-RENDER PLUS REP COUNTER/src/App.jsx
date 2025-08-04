@@ -11,7 +11,14 @@ export default function App() {
   const [newRepCount, setnewRepCount] = useState(0);
   const [repArray, setRepArray] = useState([]);
 
+  // To mitigate refreshing issue associated with REACT:
+  // const [refreshKey, setRefreshKey] = useState(0)
+  // const triggerRefresh = () => {
+  //       setRefreshKey(prevKey => prevKey + 1); // Changing the key forces remount
+  //     };
+
   const handleStart = () => {
+    // triggerRefresh();
     playSequentialAudio(newRestTime, newWarningTime);
     console.log("newRepCount: " + newRepCount)
     console.log("repArray: " + repArray)
@@ -34,6 +41,7 @@ export default function App() {
         value={newRestTime}
         onChange={(e) => {
         setnewRestTime(e.target.value);
+        // triggerRefresh();
         }}
         id="resttime"
         min="10"
@@ -56,6 +64,7 @@ export default function App() {
   <br></br>
   <br></br>
   <PrintArray array={repArray} final={newRepCount}/>
+  {/* {repArray} */}
   <br></br>
   <br></br>
   <button onClick={() => handleReset()} disabled={Number(newRepCount) === 0}>Reset</button>
@@ -63,6 +72,23 @@ export default function App() {
     )
   
   }
+  {/* <div> */}
+    {/* <CountdownTimer key={refreshKey} initialSeconds={newRestTime} warningSeconds={newWarningTime}/> */}
+    {/* <> */}
+    {/* <div className="timer">
+      <button className="bigbutton" onClick={() => handleStart()} disabled={isRunning || secondsLeft === 0}>Start Recovery</button>
+      <h2>Rep Counter: {newRepCount} Reps</h2>
+      <button className="bigbutton" onClick={() => setnewRepCount(AddRep(newRepCount))} disabled={isRunning}>REP</button>
+    </div>
+    <br></br>
+    <PrintArray array={repArray} final={newRepCount}/>
+    <br></br>
+    <br></br>
+    <button onClick={() => handleReset()} disabled={Number(newRepCount) === 0}>Reset</button> */}
+    // </>
+    {/* <playSequentialAudio delay1={newRestTime} delay2={newWarningTime}/> */}
+
+  // </div>
   
   
 

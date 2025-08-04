@@ -12,7 +12,7 @@ const PrintArray = ({ array, final }) => {
     }
     const arr3 = arr2.slice(1).join(', ')
     return arr3;
-
+    // return arr2;
   }
 
 }

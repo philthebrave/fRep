@@ -40,10 +40,9 @@ h1, h4 {
     margin-bottom: 0px;
 }
 
-/* @media (max-width: 1136px) {
-    .restandwarningform {
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-    }
-} */
+@media (max-width: 1136px) {
+.bigbutton {
+    width: 300px;
+    height: 80px;
+}
+}

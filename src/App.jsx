@@ -10,11 +10,21 @@ export default function App() {
   const [newWarningTime, setnewWarningTime] = useState("7")
   const [newRepCount, setnewRepCount] = useState(0);
   const [repArray, setRepArray] = useState([]);
-
+  const [disabledStart, setDisabledStart] = useState(false);
+  const [disabledRep, setDisabledRep] = useState(false);
+  
   const handleStart = () => {
+    setDisabledStart(true);
+    setDisabledRep(true);
+    setTimeout(() => {
+      setDisabledStart(false);
+    }, Number((newRestTime*1000)+5000));
+    setTimeout(() => {
+      setDisabledRep(false);
+    }, Number(newRestTime*1000));
     playSequentialAudio(newRestTime, newWarningTime);
-    console.log("newRepCount: " + newRepCount)
-    console.log("repArray: " + repArray)
+    // console.log("newRepCount: " + newRepCount)
+    // console.log("repArray: " + repArray)
     setRepArray(prevArray => [...prevArray, newRepCount])
   };
 
@@ -48,11 +58,12 @@ export default function App() {
         min="5"
         max="9"/>
   </form>
-  
-  <button className="bigbutton" onClick={() => handleStart()}>START RECOVERY</button>
+  <br></br>
+  <br></br>
+  <button className="bigbutton" onClick={() => handleStart()} disabled={disabledStart}>START RECOVERY</button>
   
   <h2>Rep Counter: {newRepCount} Reps</h2>
-  <button className="bigbutton" onClick={() => setnewRepCount(AddRep(newRepCount))}>REP</button>
+  <button className="bigbutton" onClick={() => setnewRepCount(AddRep(newRepCount))} disabled={disabledRep}>REP</button>
   <br></br>
   <br></br>
   <PrintArray array={repArray} final={newRepCount}/>
